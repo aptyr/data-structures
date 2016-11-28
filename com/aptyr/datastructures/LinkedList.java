@@ -15,26 +15,35 @@ package com.aptyr.datastructures;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public interface Array<T> {
+public interface LinkedList<T> {
 
-    int size();
+    /**
+     *
+     * @return value of front item
+     */
+    T front();
 
-    int capacity();
+    /**
+     *
+     * @return vale of end item
+     */
+    T back();
 
-    boolean isEmpty();
+    /**
+     * reverses the list
+     */
+    void reverse();
 
-    T at(int index);
+    /**
+     * Adds an item to the front of the list
+     * @param item
+     */
+    void pushFront(T item);
 
-    void push(T item);
-
-    void insert(int index, T item);
-
-    T pop();
-
-    void delete(int index);
-
-    void remove(T item);
-
-    int find(T item);
+    /**
+     * Adds an item at the end
+     * @param item
+     */
+    void pushBack(T item);
 
 }

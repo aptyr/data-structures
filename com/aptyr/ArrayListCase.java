@@ -4,7 +4,7 @@ import com.aptyr.datastructures.Array;
 import com.aptyr.datastructures.ArrayList;
 
 /*
- * Copyright (C) 2016 Aptyr (github.com/aptyr)
+ * Copyright (C) 2016 Artur Matusiak (github.com/aptyr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ import com.aptyr.datastructures.ArrayList;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class VectorCase implements Case {
+public class ArrayListCase implements Case {
 
 
     @Override

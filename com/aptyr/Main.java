@@ -1,9 +1,7 @@
 package com.aptyr;
 
-import java.util.LinkedList;
-
 /*
- * Copyright (C) 2016 Aptyr (github.com/aptyr)
+ * Copyright (C) 2016 Artur Matusiak (github.com/aptyr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +17,11 @@ import java.util.LinkedList;
  */
 public class Main {
 
-    private Case vectorCase = new VectorCase();
+    private Case arrayListCase = new ArrayListCase();
 
     public static void main(String[] args) {
         Main main = new Main();
 
-        main.vectorCase.run();
-
+        main.arrayListCase.run();
     }
 }

@@ -1,7 +1,7 @@
 package com.aptyr;
 
 /*
- * Copyright (C) 2016 Aptyr (github.com/aptyr)
+ * Copyright (C) 2016 Artur Matusiak (github.com/aptyr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

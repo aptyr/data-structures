@@ -1,5 +1,7 @@
 package com.aptyr;
 
+import java.util.LinkedList;
+
 /*
  * Copyright (C) 2016 Aptyr (github.com/aptyr)
  *
@@ -23,5 +25,6 @@ public class Main {
         Main main = new Main();
 
         main.vectorCase.run();
+
     }
 }

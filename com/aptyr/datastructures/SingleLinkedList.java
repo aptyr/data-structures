@@ -15,7 +15,7 @@ package com.aptyr.datastructures;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class LinkedList<E> implements Array<E> {
+public class SingleLinkedList<E> implements Array<E> {
     @Override
     public int size() {
         return 0;

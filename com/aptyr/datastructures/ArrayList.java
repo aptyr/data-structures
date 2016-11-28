@@ -15,7 +15,7 @@ package com.aptyr.datastructures;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class Vector<E> implements Array<E> {
+public class ArrayList<E> implements Array<E> {
 
     private final int defaultCapacity = 16;
 

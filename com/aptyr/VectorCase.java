@@ -1,7 +1,7 @@
 package com.aptyr;
 
 import com.aptyr.datastructures.Array;
-import com.aptyr.datastructures.Vector;
+import com.aptyr.datastructures.ArrayList;
 
 /*
  * Copyright (C) 2016 Aptyr (github.com/aptyr)
@@ -23,7 +23,7 @@ public class VectorCase implements Case {
 
     @Override
     public void run() {
-        Array<String> arr = new Vector<>();
+        Array<String> arr = new ArrayList<>();
 
         for (int i = 0; i < 18; i++) {
             arr.push("String " + i);

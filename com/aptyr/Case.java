@@ -15,13 +15,8 @@ package com.aptyr;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class Main {
+public interface Case {
 
-    private Case vectorCase = new VectorCase();
+    void run();
 
-    public static void main(String[] args) {
-        Main main = new Main();
-
-        main.vectorCase.run();
-    }
 }

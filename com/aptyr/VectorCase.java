@@ -1,5 +1,8 @@
 package com.aptyr;
 
+import com.aptyr.datastructures.Array;
+import com.aptyr.datastructures.Vector;
+
 /*
  * Copyright (C) 2016 Aptyr (github.com/aptyr)
  *
@@ -15,5 +18,53 @@ package com.aptyr;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class VectorCase {
+public class VectorCase implements Case {
+
+
+    @Override
+    public void run() {
+        Array<String> arr = new Vector<>();
+
+        for (int i = 0; i < 18; i++) {
+            arr.push("String " + i);
+        }
+
+        arr.insert(2, "SD");
+        arr.insert(6, "SD");
+        arr.insert(1, "SD");
+
+        System.out.println("pop: " + arr.pop());
+        System.out.println("pop: " + arr.pop());
+
+        System.out.println("find: " + arr.find("String 2"));
+        System.out.println("find: " + arr.find("String 22"));
+
+        arr.delete(1);
+        arr.delete(1);
+        arr.delete(1);
+        arr.delete(1);
+        arr.delete(1);
+
+        arr.remove("SD");
+        arr.remove("String 1");
+        arr.remove("String 10");
+        arr.remove("String 0");
+        arr.remove("String 290");
+        arr.remove("String 2");
+        arr.remove("String 3");
+        arr.remove("String 4");
+        arr.remove("String 5");
+        arr.remove("String 6");
+        arr.remove("String 7");
+        arr.remove("String 8");
+        arr.remove("String 11");
+        arr.remove("String 12");
+
+        System.out.println("Arr size: " + arr.size() + " capacity: " + arr.capacity());
+
+        for (int i = 0; i < arr.size(); i++) {
+            System.out.println(i + ": " + arr.at(i));
+        }
+
+    }
 }

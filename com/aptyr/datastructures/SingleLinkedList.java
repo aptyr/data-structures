@@ -1,5 +1,7 @@
 package com.aptyr.datastructures;
 
+import com.sun.istack.internal.Nullable;
+
 /*
  * Copyright (C) 2016 Artur Matusiak (github.com/aptyr)
  *
@@ -20,45 +22,99 @@ public class SingleLinkedList<E> implements Array<E>, LinkedList<E> {
     private LinkedNode<E> head;
     private LinkedNode<E> tail;
 
+    private int size;
+
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public int capacity() {
-        return 0;
+        return size();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return head == null;
     }
 
     @Override
     public E at(int index) {
-        return null;
+        if (index >= 0 && index < size()) {
+            LinkedNode<E> node = head;
+            int i = 0;
+            while (i < index) {
+                node = node.getNext();
+                ++i;
+            }
+            return node.getItem();
+        } else {
+            throw new IndexOutOfBoundsException("Requested for item at index: " + index + " when list size is: " + size);
+        }
     }
 
+    /**
+     * Result equals to pushBack
+     *
+     * @param item
+     */
     @Override
     public void push(E item) {
-
+        pushBack(item);
     }
 
     @Override
     public void insert(int index, E item) {
+        if (index < size) {
+            LinkedNode<E> node = head;
+            LinkedNode<E> toInsert = new LinkedNode<E>(item);
 
+            if (index == 0) {
+                toInsert.setNext(node);
+                head = toInsert;
+            } else {
+                int i = 1;
+                while (i < index) {
+                    node = node.getNext();
+                    ++i;
+                }
+
+                toInsert.setNext(node.getNext());
+                node.setNext(toInsert);
+            }
+            size++;
+        } else {
+            throw new IndexOutOfBoundsException("Requested for insert item at index: " + index + " when list size is: " + size);
+        }
     }
 
 
+    @Nullable
     @Override
     public E pop() {
+        if (head != null) {
+            LinkedNode<E> node = head;
+            int index = 1;
+            while (index < size) {
+                node = node.getNext();
+                ++index;
+            }
+            node.setNext(null);
+            tail = node;
+            decrementSize();
+            return node.getItem();
+        }
         return null;
     }
 
     @Override
     public void delete(int index) {
+        if (index < size) {
 
+        } else {
+            throw new IndexOutOfBoundsException("Requested for delete item at index: " + index + " when list size is: " + size);
+        }
     }
 
     @Override
@@ -68,16 +124,44 @@ public class SingleLinkedList<E> implements Array<E>, LinkedList<E> {
 
     @Override
     public int find(E item) {
-        return 0;
+        if (head != null) {
+            int result = 0;
+            LinkedNode<E> node = head;
+            E e = node.getItem();
+            if (item == null) {
+                result = size - 1;
+            } else {
+                while (node.getNext() != null) {
+                    node = node.getNext();
+                    e = node.getItem();
+                    ++result;
+                    if(node.getNext() == null){
+                        result = -1;
+                    }
+                }
+            }
+            return result;
+        }
+        return -1;
     }
 
+    @Nullable
     @Override
     public E front() {
+        if (head != null) {
+            return head.getItem();
+        }
         return null;
     }
 
+    @Nullable
     @Override
     public E back() {
+        if (tail != null) {
+            return tail.getItem();
+        } else if (head != null) {
+            return last().getItem();
+        }
         return null;
     }
 
@@ -88,11 +172,42 @@ public class SingleLinkedList<E> implements Array<E>, LinkedList<E> {
 
     @Override
     public void pushFront(E item) {
-
+        if (head != null) {
+            LinkedNode<E> toInsert = new LinkedNode<E>(item);
+            toInsert.setNext(head);
+            head = toInsert;
+        } else {
+            head = new LinkedNode<>(item);
+            tail = head;
+        }
+        size++;
     }
 
     @Override
     public void pushBack(E item) {
+        if (tail != null) {
+            tail = new LinkedNode<>(item, tail);
+        } else if (head != null) {
+            tail = last();
+            tail = new LinkedNode<>(item, tail);
+        } else {
+            head = new LinkedNode<>(item);
+            tail = head;
+        }
+        size++;
+    }
 
+    private LinkedNode<E> last() {
+        LinkedNode<E> node = head;
+        while (node.getNext() != null) {
+            node = node.getNext();
+        }
+        return node;
+    }
+
+    private void decrementSize() {
+        if (--size == 0) {
+            head = null;
+        }
     }
 }

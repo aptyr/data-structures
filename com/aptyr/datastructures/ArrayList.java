@@ -56,7 +56,7 @@ public class ArrayList<E> implements Array<E> {
 
     @Override
     public void insert(int index, E item) {
-        if (index < size) {
+        if (index >= 0 && index < size) {
             resizeBeforeAddItem();
             Object[] tmpArr = copy();
             data = new Object[capacity];
@@ -88,7 +88,7 @@ public class ArrayList<E> implements Array<E> {
 
     @Override
     public void delete(int index) {
-        if (index < size) {
+        if (index >= 0 && index < size) {
             Object[] tmpArr = copy();
             data = new Object[capacity];
 

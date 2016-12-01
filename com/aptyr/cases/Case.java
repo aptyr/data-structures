@@ -1,4 +1,4 @@
-package com.aptyr;
+package com.aptyr.cases;
 
 /*
  * Copyright (C) 2016 Artur Matusiak (github.com/aptyr)

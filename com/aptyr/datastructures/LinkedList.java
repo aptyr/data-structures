@@ -1,5 +1,7 @@
 package com.aptyr.datastructures;
 
+import com.sun.istack.internal.Nullable;
+
 /*
  * Copyright (C) 2016 Artur Matusiak (github.com/aptyr)
  *
@@ -18,15 +20,15 @@ package com.aptyr.datastructures;
 public interface LinkedList<T> {
 
     /**
-     *
      * @return value of front item
      */
+    @Nullable
     T front();
 
     /**
-     *
      * @return vale of end item
      */
+    @Nullable
     T back();
 
     /**
@@ -36,14 +38,23 @@ public interface LinkedList<T> {
 
     /**
      * Adds an item to the front of the list
+     *
      * @param item
      */
     void pushFront(T item);
 
     /**
      * Adds an item at the end
+     *
      * @param item
      */
     void pushBack(T item);
+
+    int size();
+
+    boolean isEmpty();
+
+    @Nullable
+    T pop();
 
 }

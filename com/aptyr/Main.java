@@ -1,5 +1,12 @@
 package com.aptyr;
 
+import com.aptyr.cases.ArrayListCase;
+import com.aptyr.cases.Case;
+import com.aptyr.cases.SingleLinkedListCase;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /*
  * Copyright (C) 2016 Artur Matusiak (github.com/aptyr)
  *
@@ -18,10 +25,14 @@ package com.aptyr;
 public class Main {
 
     private Case arrayListCase = new ArrayListCase();
+    private Case singleLinkedListCase = new SingleLinkedListCase();
 
     public static void main(String[] args) {
         Main main = new Main();
 
-        main.arrayListCase.run();
+        //main.arrayListCase.run();
+        //  main.singleLinkedListCase.run();
+
+
     }
 }

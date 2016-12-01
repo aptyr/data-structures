@@ -1,4 +1,4 @@
-package com.aptyr;
+package com.aptyr.cases;
 
 import com.aptyr.datastructures.Array;
 import com.aptyr.datastructures.ArrayList;

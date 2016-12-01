@@ -31,7 +31,7 @@ public class Main {
         Main main = new Main();
 
         //main.arrayListCase.run();
-        //  main.singleLinkedListCase.run();
+        main.singleLinkedListCase.run();
 
 
     }

@@ -110,8 +110,15 @@ public class SingleLinkedList<E> implements Array<E>, LinkedList<E> {
 
     @Override
     public void delete(int index) {
-        if (index < size) {
-
+        if (index >= 0 && index < size) {
+            int i = 0;
+            LinkedNode<E> node = head;
+            while(i != index){
+                node = node.getNext();
+                ++i;
+            }
+            node = node.getNext();
+            decrementSize();
         } else {
             throw new IndexOutOfBoundsException("Requested for delete item at index: " + index + " when list size is: " + size);
         }
@@ -119,7 +126,14 @@ public class SingleLinkedList<E> implements Array<E>, LinkedList<E> {
 
     @Override
     public void remove(E item) {
-
+//        LinkedNode<E> node = head;
+//        while(node.getNext() != null){
+//
+//            node = node.getNext();
+//
+//        }
+//        node = node.getNext();
+//        decrementSize();
     }
 
     @Override
@@ -127,16 +141,24 @@ public class SingleLinkedList<E> implements Array<E>, LinkedList<E> {
         if (head != null) {
             int result = 0;
             LinkedNode<E> node = head;
-            E e = node.getItem();
             if (item == null) {
                 result = size - 1;
             } else {
-                while (node.getNext() != null) {
-                    node = node.getNext();
-                    e = node.getItem();
-                    ++result;
-                    if(node.getNext() == null){
-                        result = -1;
+                if(size > 1) {
+                    while (node.getNext() != null) {
+                        node = node.getNext();
+                        ++result;
+                        if (node.getItem().equals(item)) {
+                            break;
+                        }
+                        if (node.getNext() == null) {
+                            result = -1;
+                        }
+                    }
+                } else {
+                    result = -1;
+                    if(node.getItem().equals(item)){
+                        result = 0;
                     }
                 }
             }

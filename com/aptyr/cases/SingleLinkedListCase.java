@@ -29,6 +29,7 @@ public class SingleLinkedListCase implements Case {
         System.out.println();
 
         Array<String> linkedList2 = new SingleLinkedList<>();
+
         linkedList2.push("String1#Case2");
         System.out.println("case2:find: " + linkedList2.find("NO"));
         linkedList2.push("String2#Case2");
@@ -38,8 +39,14 @@ public class SingleLinkedListCase implements Case {
         linkedList2.insert(3, "String2X#Case2");
         linkedList2.insert(3, "String3X#Case2");
         linkedList2.insert(1, "String4X#Case2");
+
+        linkedList2.delete(1);
+        linkedList2.delete(1);
+        linkedList2.delete(0);
+        linkedList2.delete(3);
+
         System.out.println("case2:at: " + linkedList2.at(0));
-        System.out.println("case2:at: " + linkedList2.at(6));
+        System.out.println("case2:at: " + linkedList2.at(2));
         System.out.println("case2:at: " + linkedList2.at(1));
         System.out.println("case2:find: " + linkedList2.find("NO"));
         System.out.println("case2:find: " + linkedList2.find("String1X#Case2"));
